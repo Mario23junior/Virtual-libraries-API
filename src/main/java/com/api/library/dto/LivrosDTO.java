@@ -66,7 +66,7 @@ public class LivrosDTO {
 		this.publishingCompany = publishingCompany;
 	}
 
- 	public List<PropriedadesDTO> getPropriedadesDto() {
+	public List<PropriedadesDTO> getPropriedadesDto() {
 		return propriedadesDto;
 	}
 
@@ -74,13 +74,15 @@ public class LivrosDTO {
 		this.propriedadesDto = propriedadesDto;
 	}
 
- 	public List<PublicacaoDTO> getPublicacaoDto() {
+	public List<PublicacaoDTO> getPublicacaoDto() {
 		return publicacaoDto;
 	}
 
 	public void setPublicacaoDto(List<PublicacaoDTO> publicacaoDto) {
 		this.publicacaoDto = publicacaoDto;
 	}
+
+ 	 
 
  	
 	 

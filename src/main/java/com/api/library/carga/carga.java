@@ -21,19 +21,28 @@ public class carga {
 	@Autowired
 	private ModelMapper mapper;
 	
-	 
 	
 	public void dateBasePower() {
+		
+		LivrosDTO l1 = new LivrosDTO();
+		l1.setId(1l);
+		
+	
+		PublicacaoDTO publiId = new PublicacaoDTO();
+		publiId.setId(2l);
+		
 		
 		PropriedadesDTO p1 = new PropriedadesDTO();
  		p1.setPage(968);
 		p1.setIsbn(8543004799l);
 		p1.setTheme("Computação");
+		p1.setLivrosDto(l1);
 		
 		PublicacaoDTO publi = new PublicacaoDTO();
 		publi.setCoverType("Capa comun");
 		publi.setPublicationDate("24/06/2016");
 		publi.setDimensoes("28 x 20.8 x 3.8cm");
+		publi.setLivrosDto(l1);
 		
 		LivrosDTO livros1 = new LivrosDTO();
 		livros1.setName("Java®: Como Programar");
