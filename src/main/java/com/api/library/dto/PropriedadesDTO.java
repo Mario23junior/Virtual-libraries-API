@@ -1,5 +1,7 @@
 package com.api.library.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class PropriedadesDTO {
 
 	private Long id;
@@ -45,6 +47,7 @@ public class PropriedadesDTO {
 		this.theme = theme;
 	}
 
+	@JsonIgnore
 	public LivrosDTO getLivrosDTO() {
 		return livrosDTO;
 	}

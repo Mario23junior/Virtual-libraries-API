@@ -1,5 +1,7 @@
 package com.api.library.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class PublicacaoDTO {
 
 	private Long id;
@@ -45,6 +47,7 @@ public class PublicacaoDTO {
 		this.dimensoes = dimensoes;
 	}
 
+	@JsonIgnore
 	public LivrosDTO getLivrosDto() {
 		return livrosDto;
 	}
