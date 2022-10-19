@@ -1,4 +1,4 @@
-package com.api.library.Handlererro;
+package com.api.library.handlererro;
 
 import java.util.Date;
 
