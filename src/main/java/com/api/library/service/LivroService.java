@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.api.library.dto.LivrosDTO;
+import com.api.library.exceptions.ReturnErroFindNotFound;
 import com.api.library.model.Livros;
 import com.api.library.repository.LivrosRepository;
 
@@ -30,8 +31,8 @@ public class LivroService {
 					.status(HttpStatus.OK)
 					.body(mapper.map(livroSave, LivrosDTO.class));
 		} catch (Exception i) {
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
+			throw new ReturnErroFindNotFound("Erro ao salvar o livro :"+livroDto.getName()+" Por favor insira valores validos.");		
+			}
 
 	}
 
@@ -44,7 +45,8 @@ public class LivroService {
 		if (livroId.isPresent()) {
 			return ResponseEntity.ok(mapper.map(livroId.get(), LivrosDTO.class));
 		} else {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			  throw new ReturnErroFindNotFound("ID : "+id+" Não encontrado por favor "
+			  		+ "insira ids validos ou tente mais tarde");
 		}
 	}
 
