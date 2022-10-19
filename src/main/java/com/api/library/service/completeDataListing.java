@@ -24,7 +24,8 @@ public class completeDataListing {
 	}
 	
 	public List<LivrosDTO> listDataAll() {
-		return ((List<Livros>) repository
+		return ((List<Livros>) 
+				repository
 				.findAll())
 				.stream()
 				.map(this::ConverterEntityToDto)
@@ -38,14 +39,6 @@ public class completeDataListing {
 		LivrosDTO livroDto = mapper.map(livros, LivrosDTO.class);
 		return livroDto;
 	}
-	
-	public List<LivrosDTO> listAllDto() {
-		List<LivrosDTO> list = listDataAll();
-		list
-		.stream()
-		.collect(Collectors.toList());
-		
-		return list;
-	}
+ 
 	
 }

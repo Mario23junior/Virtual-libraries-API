@@ -24,14 +24,14 @@ public class LivroService {
 		this.mapper = mapper;
 	}
 
-	public ResponseEntity<LivrosDTO> saveLivro(LivrosDTO livroDto) {
+	public ResponseEntity<Livros> saveLivro(Livros Livro) {
 		try {
-			Livros livroSave = bodySave(mapper.map(livroDto, Livros.class));
+			Livros livroSave = bodySave(mapper.map(Livro, Livros.class));
 			return ResponseEntity
 					.status(HttpStatus.OK)
-					.body(mapper.map(livroSave, LivrosDTO.class));
+					.body(mapper.map(livroSave, Livros.class));
 		} catch (Exception i) {
-			throw new ReturnErroFindNotFound("Erro ao salvar o livro : ("+livroDto.getName()
+			throw new ReturnErroFindNotFound("Erro ao salvar o livro : ("+Livro.getName()
 			+") Por favor insira valores validos, ou tente mais tarde.");		
 		}
 

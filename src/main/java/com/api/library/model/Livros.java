@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Livros {
 
@@ -30,12 +32,12 @@ public class Livros {
 
 	@Column(nullable = false)
 	private String publishingCompany;
-	
-	@OneToMany(mappedBy = "livros",cascade = CascadeType.ALL)
-	List<Propriedades> propriedades;
-	
-	@OneToMany(mappedBy = "livros",cascade = CascadeType.ALL)
-	List<Publicacao> publicacao;
+
+	@OneToMany(mappedBy = "livros", cascade = CascadeType.ALL)
+	private List<Propriedades> propriedades;
+
+	@OneToMany(mappedBy = "livros", cascade = CascadeType.ALL)
+	private List<Publicacao> publicacao;
 
 	public Livros() {
 		// TODO Auto-generated constructor stub
@@ -89,6 +91,7 @@ public class Livros {
 		this.publishingCompany = publishingCompany;
 	}
 
+	@JsonIgnore
 	public List<Propriedades> getPropriedades() {
 		return propriedades;
 	}
@@ -97,6 +100,7 @@ public class Livros {
 		this.propriedades = propriedades;
 	}
 
+	@JsonIgnore
 	public List<Publicacao> getPublicacao() {
 		return publicacao;
 	}
@@ -104,7 +108,5 @@ public class Livros {
 	public void setPublicacao(List<Publicacao> publicacao) {
 		this.publicacao = publicacao;
 	}
-	
-	
 
 }

@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Propriedades {
 
@@ -58,6 +60,7 @@ public class Propriedades {
 		this.theme = theme;
 	}
 
+	@JsonIgnore
 	public Livros getLivros() {
 		return livros;
 	}
@@ -65,7 +68,5 @@ public class Propriedades {
 	public void setLivros(Livros livros) {
 		this.livros = livros;
 	}
-	
-	
 
 }

@@ -8,8 +8,18 @@ public class PropriedadesDTO {
 	private Integer page;
 	private Long isbn;
 	private String theme;
+	 
+	private LivrosDTO livrosDto;
+    
+	
+	@JsonIgnore
+	public LivrosDTO getLivrosDto() {
+		return livrosDto;
+	}
 
-	private LivrosDTO livrosDTO;
+	public void setLivrosDto(LivrosDTO livrosDto) {
+		this.livrosDto = livrosDto;
+	}
 
 	public PropriedadesDTO() {
 		// TODO Auto-generated constructor stub
@@ -47,13 +57,7 @@ public class PropriedadesDTO {
 		this.theme = theme;
 	}
 
-	@JsonIgnore
-	public LivrosDTO getLivrosDTO() {
-		return livrosDTO;
-	}
-
-	public void setLivrosDTO(LivrosDTO livrosDTO) {
-		this.livrosDTO = livrosDTO;
-	}
+	
+ 
 
 }

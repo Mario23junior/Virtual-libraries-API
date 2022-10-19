@@ -2,8 +2,6 @@ package com.api.library.dto;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 public class LivrosDTO {
 
 	private Long id;
@@ -68,24 +66,22 @@ public class LivrosDTO {
 		this.publishingCompany = publishingCompany;
 	}
 
-	@JsonIgnore
-	public List<PropriedadesDTO> getPropriedadesDto() {
+ 	public List<PropriedadesDTO> getPropriedadesDto() {
 		return propriedadesDto;
 	}
 
 	public void setPropriedadesDto(List<PropriedadesDTO> propriedadesDto) {
 		this.propriedadesDto = propriedadesDto;
 	}
-    
-	@JsonIgnore
-	public List<PublicacaoDTO> getPublicacaoDto() {
+
+ 	public List<PublicacaoDTO> getPublicacaoDto() {
 		return publicacaoDto;
 	}
 
 	public void setPublicacaoDto(List<PublicacaoDTO> publicacaoDto) {
 		this.publicacaoDto = publicacaoDto;
 	}
-	
-	
 
+ 	
+	 
 }

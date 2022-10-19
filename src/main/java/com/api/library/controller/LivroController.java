@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.library.dto.LivrosDTO;
+import com.api.library.model.Livros;
 import com.api.library.service.LivroService;
 
 @RestController
@@ -25,8 +26,8 @@ public class LivroController {
 	}
 
 	@PostMapping
-	ResponseEntity<LivrosDTO> save(@RequestBody LivrosDTO livrosDto) {
-		return service.saveLivro(livrosDto);
+	ResponseEntity<Livros> save(@RequestBody Livros livros) {
+		return service.saveLivro(livros);
 	}
 	
 	@GetMapping("{id}")

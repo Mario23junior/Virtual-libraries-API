@@ -11,6 +11,15 @@ public class PublicacaoDTO {
 
 	private LivrosDTO livrosDto;
 
+	@JsonIgnore
+	public LivrosDTO getLivrosDto() {
+		return livrosDto;
+	}
+
+	public void setLivrosDto(LivrosDTO livrosDto) {
+		this.livrosDto = livrosDto;
+	}
+
 	public PublicacaoDTO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -45,15 +54,6 @@ public class PublicacaoDTO {
 
 	public void setDimensoes(String dimensoes) {
 		this.dimensoes = dimensoes;
-	}
-
-	@JsonIgnore
-	public LivrosDTO getLivrosDto() {
-		return livrosDto;
-	}
-
-	public void setLivrosDto(LivrosDTO livrosDto) {
-		this.livrosDto = livrosDto;
 	}
 
 }
