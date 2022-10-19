@@ -1,5 +1,7 @@
 package com.api.library.service;
 
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,4 +40,15 @@ public class PropriedadeService {
 	private Propriedades bodySave(Propriedades Propriedades) {
 		return repository.save(Propriedades);
 	}
+	
+	public ResponseEntity<PropriedadesDTO> listid(Long id){
+		Optional<Propriedades> proId = repository.findById(id);
+		if (proId.isPresent()) {
+			return ResponseEntity.ok(mapper.map(proId.get(), PropriedadesDTO.class));
+		} else {
+			  throw new ReturnErroFindNotFound("ID : "+id
+					  +" Não encontrado por favor insira ou tente mais tarde");
+		}
+	}
 }
+ 
