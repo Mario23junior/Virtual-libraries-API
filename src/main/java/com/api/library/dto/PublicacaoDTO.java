@@ -1,12 +1,10 @@
 package com.api.library.dto;
 
-import java.util.Date;
-
 public class PublicacaoDTO {
 
 	private Long id;
-	private String coverType;
-	private Date publicationDate;
+	private String coverType;	
+ 	private String publicationDate;
 	private String dimensoes;
 
 	public PublicacaoDTO() {
@@ -29,11 +27,11 @@ public class PublicacaoDTO {
 		this.coverType = coverType;
 	}
 
-	public Date getPublicationDate() {
+	public String getPublicationDate() {
 		return publicationDate;
 	}
 
-	public void setPublicationDate(Date publicationDate) {
+	public void setPublicationDate(String publicationDate) {
 		this.publicationDate = publicationDate;
 	}
 

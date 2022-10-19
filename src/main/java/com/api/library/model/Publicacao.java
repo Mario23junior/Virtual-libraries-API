@@ -1,7 +1,5 @@
 package com.api.library.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,9 +13,11 @@ public class Publicacao {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+
 	@Column(nullable = false)
 	private String coverType;
-	private Date publicationDate;
+	
+ 	private String publicationDate;
 	
 	@Column(nullable = false)
 	private String dimensoes;
@@ -42,11 +42,11 @@ public class Publicacao {
 		this.coverType = coverType;
 	}
 
-	public Date getPublicationDate() {
+	public String getPublicationDate() {
 		return publicationDate;
 	}
 
-	public void setPublicationDate(Date publicationDate) {
+	public void setPublicationDate(String publicationDate) {
 		this.publicationDate = publicationDate;
 	}
 
