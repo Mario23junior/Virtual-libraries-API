@@ -13,7 +13,7 @@ public class Propriedades {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private Integer page;
-	private Integer isbn;
+	private Long isbn;
 	
 	@Column(nullable = false)
 	private String theme;
@@ -38,11 +38,11 @@ public class Propriedades {
 		this.page = page;
 	}
 
-	public Integer getIsbn() {
+	public Long getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(Integer isbn) {
+	public void setIsbn(Long isbn) {
 		this.isbn = isbn;
 	}
 

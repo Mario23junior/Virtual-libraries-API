@@ -4,8 +4,7 @@ public class PropriedadesDTO {
 
 	private Long id;
 	private Integer page;
-	private Integer isbn;
-
+	private Long isbn;
 	private String theme;
 
 	public PropriedadesDTO() {
@@ -28,11 +27,11 @@ public class PropriedadesDTO {
 		this.page = page;
 	}
 
-	public Integer getIsbn() {
+	public Long getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(Integer isbn) {
+	public void setIsbn(Long isbn) {
 		this.isbn = isbn;
 	}
 
