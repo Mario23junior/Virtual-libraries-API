@@ -24,3 +24,5 @@
                                        __/ |                 | |       
                                       |___/                  |_|       
                                       
+ Application Version:${application.version} ${AnsiColor.RED} ::: Spring Boot ${spring-boot.formatted-version} ::: ${AnsiColor.RED}                                                                                        
+                                 
