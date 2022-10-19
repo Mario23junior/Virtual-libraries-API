@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.api.library.dto.PropriedadesDTO;
 import com.api.library.exceptions.ReturnErroFindNotFound;
+import com.api.library.model.Livros;
 import com.api.library.model.Propriedades;
 import com.api.library.repository.PropriedadesRepository;
 
@@ -47,7 +48,7 @@ public class PropriedadeService {
 			return ResponseEntity.ok(mapper.map(proId.get(), PropriedadesDTO.class));
 		} else {
 			  throw new ReturnErroFindNotFound("ID : "+id
-					  +" Não encontrado por favor insira ou tente mais tarde");
+					  +" Não encontrado por favor insira valores corretamento ou tente mais tarde.");
 		}
 	}
 	
@@ -65,6 +66,19 @@ public class PropriedadeService {
 			throw new ReturnErroFindNotFound("Erro ao atualizar propriedades, Por favor confira os valores inseridos.");
 		}
 	}
+	
+	public ResponseEntity<PropriedadesDTO> delete(Long id) {
+		Livros livro = new Livros();
+		Optional<Propriedades> findId = repository.findById(id);
+		if(findId.isPresent()) {
+			repository.delete(findId.get());
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			throw new ReturnErroFindNotFound("Erro ao deletar as propriedades do livro "+livro.getName()
+			+", Por favor confira os valores inseridos.");		
+		}
+	}
+
  
 	
 }

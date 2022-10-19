@@ -1,6 +1,7 @@
 package com.api.library.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +30,7 @@ public class PropriedadesController {
 	}
 
 	@GetMapping("{id}")
-	public ResponseEntity<PropriedadesDTO> listId(@PathVariable Long id) {
+	public ResponseEntity<PropriedadesDTO> FindlistId(@PathVariable Long id) {
 		return service.listid(id);
 	}
 	
@@ -38,5 +39,10 @@ public class PropriedadesController {
 			@PathVariable Long id,
 			@RequestBody PropriedadesDTO propriedadesDto) {
 		return service.updatePropriedade(propriedadesDto, id);
+	}
+	
+	@DeleteMapping("{id}")
+	public ResponseEntity<PropriedadesDTO> delete(@PathVariable Long id) {
+		return service.delete(id);
 	}
 }
