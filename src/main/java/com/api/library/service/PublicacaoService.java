@@ -1,5 +1,7 @@
 package com.api.library.service;
 
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +39,17 @@ public class PublicacaoService {
 	private Publicacao bodySave(Publicacao publicacao) {
 		return repository.save(publicacao);
 	}
+	
+	public ResponseEntity<PublicacaoDTO> listIdPublicao(Long id){
+		Optional<Publicacao> proId = repository.findById(id);
+		if (proId.isPresent()) {
+			return ResponseEntity.ok(mapper.map(proId.get(), PublicacaoDTO.class));
+		} else {
+			  throw new ReturnErroFindNotFound("Publicação de ID : "+id
+					  +" Não encontrada por favor insira valores corretamento ou tente mais tarde.");
+		}
+	}
+	
 	
 	
 }
