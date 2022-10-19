@@ -7,6 +7,8 @@ public class PublicacaoDTO {
  	private String publicationDate;
 	private String dimensoes;
 
+	private LivrosDTO livrosDto;
+	
 	public PublicacaoDTO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -42,5 +44,15 @@ public class PublicacaoDTO {
 	public void setDimensoes(String dimensoes) {
 		this.dimensoes = dimensoes;
 	}
+
+	public LivrosDTO getLivrosDto() {
+		return livrosDto;
+	}
+
+	public void setLivrosDto(LivrosDTO livrosDto) {
+		this.livrosDto = livrosDto;
+	}
+	
+	
 
 }

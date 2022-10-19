@@ -1,5 +1,7 @@
 package com.api.library.dto;
 
+import java.util.List;
+
 public class LivrosDTO {
 
 	private Long id;
@@ -8,6 +10,9 @@ public class LivrosDTO {
 	private String author;
 	private Integer edition;
 	private String publishingCompany;
+	
+	private List<PropriedadesDTO> propriedadesDto;
+	private List<PublicacaoDTO> publicacaoDto;
 
 	public LivrosDTO() {
 		// TODO Auto-generated constructor stub
@@ -60,5 +65,23 @@ public class LivrosDTO {
 	public void setPublishingCompany(String publishingCompany) {
 		this.publishingCompany = publishingCompany;
 	}
+
+	public List<PropriedadesDTO> getPropriedadesDto() {
+		return propriedadesDto;
+	}
+
+	public void setPropriedadesDto(List<PropriedadesDTO> propriedadesDto) {
+		this.propriedadesDto = propriedadesDto;
+	}
+
+	public List<PublicacaoDTO> getPublicacaoDto() {
+		return publicacaoDto;
+	}
+
+	public void setPublicacaoDto(List<PublicacaoDTO> publicacaoDto) {
+		this.publicacaoDto = publicacaoDto;
+	}
+	
+	
 
 }
