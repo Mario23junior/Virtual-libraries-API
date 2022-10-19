@@ -27,7 +27,7 @@ public class LivroService {
 	public ResponseEntity<Livros> saveLivro(Livros Livro) {
 		try {
 			Livros livroSave = bodySave(mapper.map(Livro, Livros.class));
-			return ResponseEntity
+ 			return ResponseEntity
 					.status(HttpStatus.OK)
 					.body(mapper.map(livroSave, Livros.class));
 		} catch (Exception i) {
@@ -38,6 +38,7 @@ public class LivroService {
 	}
 
 	private Livros bodySave(Livros livro) {
+		ValidDataDuplicate(mapper.map(livro, LivrosDTO.class));
 		return repository.save(livro);
 	}
 
@@ -53,6 +54,7 @@ public class LivroService {
 
 	public ResponseEntity<LivrosDTO> updateLivro(LivrosDTO livroDto, Long id) {
 		Optional<Livros> livrosId = repository.findById(id);
+		ValidDataDuplicate(livroDto);
 		if (livrosId.isPresent()) {
 			Livros livroUpdate = livrosId.get();
 			livroUpdate.setImage(livroDto.getImage());
@@ -77,6 +79,15 @@ public class LivroService {
 		} else {
 			throw new ReturnErroFindNotFound("Erro ao deletar o livro "+livro.getName()
 			+", Por favor confira os valores inseridos.");		
+		}
+	}
+	
+	public void ValidDataDuplicate(LivrosDTO livrosDto) {
+		Livros livrosCon = mapper.map(livrosDto, Livros.class);
+		Livros findDate = repository.findByName(livrosDto.getName());
+		if(findDate != null && findDate.getId() != livrosCon.getId()) {
+			throw new ReturnErroFindNotFound("O livro "+livrosDto.getName()
+			+" já existe na base de dados , Por favor tente um outro livro");		
 		}
 	}
 

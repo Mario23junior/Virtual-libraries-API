@@ -25,6 +25,7 @@ public class PublicacaoService {
 	}
 	
 	public ResponseEntity<PublicacaoDTO> savePublicao(PublicacaoDTO publiDto) {
+		ValidDataDuplicate(publiDto);
 		try {
 			Publicacao publicId = bodySave(mapper.map(publiDto, Publicacao.class));
 			return ResponseEntity
@@ -52,6 +53,7 @@ public class PublicacaoService {
 	
 	
 	public ResponseEntity<PublicacaoDTO> update(Long id,PublicacaoDTO publicDto) {
+		ValidDataDuplicate(publicDto);
 		Optional<Publicacao> publiId = repository.findById(id);
 		if (publiId.isPresent()) {
 			Publicacao publiUpdate = publiId.get();
@@ -75,5 +77,13 @@ public class PublicacaoService {
 				+" Não encontrado, Por favor confira os valores inseridos.");		
 			}
 		}
+	
+	public void ValidDataDuplicate(PublicacaoDTO PublicacaoDto) {
+		Publicacao proprie = mapper.map(PublicacaoDto, Publicacao.class);
+		Publicacao findDate = repository.findByCoverType(PublicacaoDto.getCoverType());
+		if(findDate != null && findDate.getId() != proprie.getId()) {
+			throw new ReturnErroFindNotFound("Informação já existe na base de dados , Por favor tente um outro livro");		
+		}
+	}
 	
 }

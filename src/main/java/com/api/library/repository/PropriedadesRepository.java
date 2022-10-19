@@ -6,4 +6,6 @@ import com.api.library.model.Propriedades;
 
 public interface PropriedadesRepository extends JpaRepository<Propriedades, Long>{
 
+	Propriedades findByTheme(String theme);
+
 }

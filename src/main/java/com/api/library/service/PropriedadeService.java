@@ -26,6 +26,7 @@ public class PropriedadeService {
 	
 	public ResponseEntity<PropriedadesDTO> savePropriedade(PropriedadesDTO proprieDto) {
 		try {
+			ValidDataDuplicate(proprieDto);
 			Propriedades proprie = bodySave(mapper.map(proprieDto, Propriedades.class));
 			return ResponseEntity
 					.status(HttpStatus.OK)
@@ -53,6 +54,7 @@ public class PropriedadeService {
 	
 	
 	public ResponseEntity<PropriedadesDTO> updatePropriedade(PropriedadesDTO propriedDto, Long id) {
+		ValidDataDuplicate(propriedDto);
 		Optional<Propriedades> proprieId = repository.findById(id);
 		if (proprieId.isPresent()) {
 			Propriedades proprieUpdate = proprieId.get();
@@ -77,7 +79,14 @@ public class PropriedadeService {
 		}
 	}
 
- 
+	public void ValidDataDuplicate(PropriedadesDTO propriedadesDto) {
+		Propriedades proprie = mapper.map(propriedadesDto, Propriedades.class);
+		Propriedades findDate = repository.findByTheme(propriedadesDto.getTheme());
+		if(findDate != null && findDate.getId() != proprie.getId()) {
+			throw new ReturnErroFindNotFound("O livro "+propriedadesDto.getTheme()
+			+" já existe na base de dados , Por favor tente um outro livro");		
+		}
+	}
 	
 }
  
