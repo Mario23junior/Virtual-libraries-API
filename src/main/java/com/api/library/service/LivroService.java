@@ -1,5 +1,7 @@
 package com.api.library.service;
 
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +37,15 @@ public class LivroService {
 
 	private Livros bodySave(Livros livro) {
 		return repository.save(livro);
+	}
+	
+	public ResponseEntity<LivrosDTO> listId(Long id){
+		Optional<Livros> livroId = repository.findById(id);
+		if(livroId.isPresent()) {
+			return ResponseEntity.ok(mapper.map(livroId.get(),LivrosDTO.class));			
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);			
+		}
 	}
 
 }
