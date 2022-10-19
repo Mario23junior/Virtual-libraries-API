@@ -33,7 +33,7 @@ Uma série de exemplos passo-a-passo que informam o que você deve executar para
 Diga como essa etapa será:
 
 ```
-java -jar target/systemsola-0.0.1-SNAPSHOT.jar
+java -jar target/digitalLibrary-0.0.1-SNAPSHOT.jar
 
 ```
  
