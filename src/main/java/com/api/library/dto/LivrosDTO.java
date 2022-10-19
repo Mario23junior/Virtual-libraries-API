@@ -7,7 +7,7 @@ public class LivrosDTO {
 	private String name;
 	private String author;
 	private Integer edition;
-	private String PublishingCompany;
+	private String publishingCompany;
 
 	public LivrosDTO() {
 		// TODO Auto-generated constructor stub
@@ -54,11 +54,11 @@ public class LivrosDTO {
 	}
 
 	public String getPublishingCompany() {
-		return PublishingCompany;
+		return publishingCompany;
 	}
 
 	public void setPublishingCompany(String publishingCompany) {
-		PublishingCompany = publishingCompany;
+		this.publishingCompany = publishingCompany;
 	}
 
 }

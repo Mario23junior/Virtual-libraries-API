@@ -12,21 +12,21 @@ public class Livros {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column(nullable = false)
 	private String image;
-	
+
 	@Column(nullable = false)
 	private String name;
-	
+
 	@Column(nullable = false)
 	private String author;
-	
+
 	private Integer edition;
-	
+
 	@Column(nullable = false)
-	private String PublishingCompany;
-	
+	private String publishingCompany;
+
 	public Livros() {
 		// TODO Auto-generated constructor stub
 	}
@@ -72,11 +72,11 @@ public class Livros {
 	}
 
 	public String getPublishingCompany() {
-		return PublishingCompany;
+		return publishingCompany;
 	}
 
 	public void setPublishingCompany(String publishingCompany) {
-		PublishingCompany = publishingCompany;
+		this.publishingCompany = publishingCompany;
 	}
 
 }

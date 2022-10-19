@@ -27,10 +27,10 @@ public class LivroService {
 			return ResponseEntity
 					.status(HttpStatus.OK)
 					.body(mapper.map(livroSave, LivrosDTO.class));
-		}catch(Exception e) {
-		    return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}catch(Exception i) {
+		      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-	
+ 			
 	}
 
 	private Livros bodySave(Livros livro) {
