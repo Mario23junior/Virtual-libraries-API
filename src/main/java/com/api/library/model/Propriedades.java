@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Propriedades {
@@ -17,6 +18,9 @@ public class Propriedades {
 	
 	@Column(nullable = false)
 	private String theme;
+	
+	@ManyToOne
+	private Livros livros;
 
 	public Propriedades() {
 		// TODO Auto-generated constructor stub
@@ -53,5 +57,15 @@ public class Propriedades {
 	public void setTheme(String theme) {
 		this.theme = theme;
 	}
+
+	public Livros getLivros() {
+		return livros;
+	}
+
+	public void setLivros(Livros livros) {
+		this.livros = livros;
+	}
+	
+	
 
 }

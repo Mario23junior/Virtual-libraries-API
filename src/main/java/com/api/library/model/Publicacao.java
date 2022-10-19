@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Publicacao {
@@ -21,6 +22,9 @@ public class Publicacao {
 	
 	@Column(nullable = false)
 	private String dimensoes;
+	
+	@ManyToOne
+	private Livros livros;
 	
 	public Publicacao() {
 		// TODO Auto-generated constructor stub
@@ -56,6 +60,14 @@ public class Publicacao {
 
 	public void setDimensoes(String dimensoes) {
 		this.dimensoes = dimensoes;
+	}
+
+	public Livros getLivros() {
+		return livros;
+	}
+
+	public void setLivros(Livros livros) {
+		this.livros = livros;
 	}
 	
 	

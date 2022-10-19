@@ -1,10 +1,14 @@
 package com.api.library.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Livros {
@@ -26,6 +30,12 @@ public class Livros {
 
 	@Column(nullable = false)
 	private String publishingCompany;
+	
+	@OneToMany(mappedBy = "livros",cascade = CascadeType.ALL)
+	List<Propriedades> propriedades;
+	
+	@OneToMany(mappedBy = "livros",cascade = CascadeType.ALL)
+	List<Publicacao> publicacao;
 
 	public Livros() {
 		// TODO Auto-generated constructor stub
@@ -78,5 +88,23 @@ public class Livros {
 	public void setPublishingCompany(String publishingCompany) {
 		this.publishingCompany = publishingCompany;
 	}
+
+	public List<Propriedades> getPropriedades() {
+		return propriedades;
+	}
+
+	public void setPropriedades(List<Propriedades> propriedades) {
+		this.propriedades = propriedades;
+	}
+
+	public List<Publicacao> getPublicacao() {
+		return publicacao;
+	}
+
+	public void setPublicacao(List<Publicacao> publicacao) {
+		this.publicacao = publicacao;
+	}
+	
+	
 
 }
