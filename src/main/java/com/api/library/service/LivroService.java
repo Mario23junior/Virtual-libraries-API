@@ -61,5 +61,15 @@ public class LivroService {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 	}
+	
+	public ResponseEntity<LivrosDTO> delete(Long id) {
+		Optional<Livros> findId = repository.findById(id);
+		if(findId.isPresent()) {
+			repository.delete(findId.get());
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 
 }
