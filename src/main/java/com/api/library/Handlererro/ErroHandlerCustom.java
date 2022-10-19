@@ -24,4 +24,16 @@ public class ErroHandlerCustom {
 				request.getDescription(false));
 				return error;	
 	}
+	
+	@ExceptionHandler(Exception.class)
+	  @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
+	  public modelErroReturn globalExceptionHandler(Exception ex, WebRequest request) {
+		modelErroReturn message = new modelErroReturn(
+	        HttpStatus.INTERNAL_SERVER_ERROR.value(),
+	        new Date(),
+	        ex.getMessage(),
+	        request.getDescription(false));
+	    
+	    return message;
+	  }
 }
