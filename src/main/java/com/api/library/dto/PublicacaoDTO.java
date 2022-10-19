@@ -5,12 +5,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class PublicacaoDTO {
 
 	private Long id;
-	private String coverType;	
- 	private String publicationDate;
+	private String coverType;
+	private String publicationDate;
 	private String dimensoes;
 
 	private LivrosDTO livrosDto;
-	
+
 	public PublicacaoDTO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -55,7 +55,5 @@ public class PublicacaoDTO {
 	public void setLivrosDto(LivrosDTO livrosDto) {
 		this.livrosDto = livrosDto;
 	}
-	
-	
 
 }
