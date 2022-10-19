@@ -31,8 +31,9 @@ public class LivroService {
 					.status(HttpStatus.OK)
 					.body(mapper.map(livroSave, LivrosDTO.class));
 		} catch (Exception i) {
-			throw new ReturnErroFindNotFound("Erro ao salvar o livro :"+livroDto.getName()+" Por favor insira valores validos.");		
-			}
+			throw new ReturnErroFindNotFound("Erro ao salvar o livro : ("+livroDto.getName()
+			+") Por favor insira valores validos, ou tente mais tarde.");		
+		}
 
 	}
 
@@ -45,8 +46,8 @@ public class LivroService {
 		if (livroId.isPresent()) {
 			return ResponseEntity.ok(mapper.map(livroId.get(), LivrosDTO.class));
 		} else {
-			  throw new ReturnErroFindNotFound("ID : "+id+" Não encontrado por favor "
-			  		+ "insira ids validos ou tente mais tarde");
+			  throw new ReturnErroFindNotFound("ID : "+id
+					  +" Não encontrado por favor insira ou tente mais tarde");
 		}
 	}
 
@@ -62,17 +63,20 @@ public class LivroService {
 			repository.save(livroUpdate);
 			return ResponseEntity.ok(mapper.map(livroUpdate, LivrosDTO.class));
 		} else {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			throw new ReturnErroFindNotFound("Erro ao atualizar o livro "+livroDto.getName()
+			+", Por favor confira os valores inseridos.");
 		}
 	}
 	
 	public ResponseEntity<LivrosDTO> delete(Long id) {
+		Livros livro = new Livros();
 		Optional<Livros> findId = repository.findById(id);
 		if(findId.isPresent()) {
 			repository.delete(findId.get());
 			return new ResponseEntity<>(HttpStatus.OK);
 		} else {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+			throw new ReturnErroFindNotFound("Erro ao deletar o livro "+livro.getName()
+			+", Por favor confira os valores inseridos.");		
 		}
 	}
 

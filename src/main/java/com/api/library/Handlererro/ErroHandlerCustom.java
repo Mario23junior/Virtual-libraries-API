@@ -25,7 +25,7 @@ public class ErroHandlerCustom {
 				return error;	
 	}
 	
-	@ExceptionHandler(Exception.class)
+	  @ExceptionHandler(Exception.class)
 	  @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
 	  public modelErroReturn globalExceptionHandler(Exception ex, WebRequest request) {
 		modelErroReturn message = new modelErroReturn(
