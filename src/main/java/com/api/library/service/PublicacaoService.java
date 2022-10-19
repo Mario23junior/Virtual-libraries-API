@@ -51,6 +51,20 @@ public class PublicacaoService {
 	}
 	
 	
+	public ResponseEntity<PublicacaoDTO> update(Long id,PublicacaoDTO publicDto) {
+		Optional<Publicacao> publiId = repository.findById(id);
+		if (publiId.isPresent()) {
+			Publicacao publiUpdate = publiId.get();
+			publiUpdate.setCoverType(publicDto.getCoverType());
+			publiUpdate.setPublicationDate(publicDto.getPublicationDate());
+			publiUpdate.setDimensoes(publicDto.getDimensoes());
+			repository.save(publiUpdate);
+			return ResponseEntity.ok(mapper.map(publiUpdate, PublicacaoDTO.class));
+		} else {
+			throw new ReturnErroFindNotFound("Erro ao atualizar dados de publicações, Por favor confira os valores inseridos.");
+		}
+	}
+	
 	public ResponseEntity<PublicacaoDTO> delete(Long id){
  	 		Optional<Publicacao> findId = repository.findById(id);
 			if(findId.isPresent()) {
