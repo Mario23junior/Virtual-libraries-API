@@ -24,7 +24,7 @@ public class PropriedadeService {
 		this.mapper = mapper;
 	}
 	
-	public ResponseEntity<PropriedadesDTO> saveLivro(PropriedadesDTO proprieDto) {
+	public ResponseEntity<PropriedadesDTO> savePropriedade(PropriedadesDTO proprieDto) {
 		try {
 			Propriedades proprie = bodySave(mapper.map(proprieDto, Propriedades.class));
 			return ResponseEntity
@@ -50,5 +50,22 @@ public class PropriedadeService {
 					  +" Não encontrado por favor insira ou tente mais tarde");
 		}
 	}
+	
+	
+	public ResponseEntity<PropriedadesDTO> updatePropriedade(PropriedadesDTO propriedDto, Long id) {
+		Optional<Propriedades> proprieId = repository.findById(id);
+		if (proprieId.isPresent()) {
+			Propriedades proprieUpdate = proprieId.get();
+			proprieUpdate.setPage(propriedDto.getPage());
+			proprieUpdate.setIsbn(propriedDto.getIsbn());
+			proprieUpdate.setTheme(propriedDto.getTheme());
+			repository.save(proprieUpdate);
+			return ResponseEntity.ok(mapper.map(proprieUpdate, PropriedadesDTO.class));
+		} else {
+			throw new ReturnErroFindNotFound("Erro ao atualizar propriedades, Por favor confira os valores inseridos.");
+		}
+	}
+ 
+	
 }
  
