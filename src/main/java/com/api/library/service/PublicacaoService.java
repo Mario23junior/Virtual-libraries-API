@@ -51,5 +51,15 @@ public class PublicacaoService {
 	}
 	
 	
+	public ResponseEntity<PublicacaoDTO> delete(Long id){
+ 	 		Optional<Publicacao> findId = repository.findById(id);
+			if(findId.isPresent()) {
+				repository.delete(findId.get());
+				return new ResponseEntity<>(HttpStatus.OK);
+			} else {
+				throw new ReturnErroFindNotFound("ID: "+id
+				+" Não encontrado, Por favor confira os valores inseridos.");		
+			}
+		}
 	
 }
