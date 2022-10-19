@@ -7,4 +7,5 @@ import com.api.library.model.Livros;
 public interface LivrosRepository extends JpaRepository<Livros, Long> {
   
 	Livros findByName(String name);
-}
+
+ }
