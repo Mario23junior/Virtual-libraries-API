@@ -2,12 +2,15 @@
 
 <h1 align="center"> Virtual libraries API</h1>
 
-<h3 align="center">
-API REST de código aberto para dados de consulta de  pesquisa  as informações nelas contidadas com o objetivo de estabelecer resultados relevantes <a href="https://solarsystem.nasa.gov/" target="_blank">Nasa</a>
- <a href="https://www.iau2006.org/"usando como base organizacional um sistema de CRUD
+<h4 align="center">
+Objetivo desta API e promover uma interface bem definida para garantir que a
+interação entre as aplicações e sistemas seja íntegra. Neste contexto temos a
+aplicação da arquitetura REST em conjunto com outras tecnologias para sistemas
+distribuidos como HTTP e JSON, para construção de APIs que promovem
+comunicação e troca de dados maneira simples e rápida.
 <p align="center">
  
-<a href="https://app.travis-ci.com/Mario23junior/solar-system-api.svg?branch=main" target="_blank"> [![Build Status](https://app.travis-ci.com/Mario23junior/solar-system-api.svg?branch=main)](https://app.travis-ci.com/Mario23junior/solar-system-api.svg?branch=main)
+  [![Virtual libraries build](https://github.com/Mario23junior/Virtual-libraries-API/actions/workflows/Maven.yml/badge.svg?branch=main)](https://github.com/Mario23junior/Virtual-libraries-API/actions/workflows/Maven.yml)
 <a href="https://en.wikipedia.org/wiki/Representational_state_transfer"><img src="https://img.shields.io/badge/interface-REST-brightgreen.svg?longCache=true&style=flat-square" target="_blank"></a>
 </p>
   
@@ -18,13 +21,12 @@ API REST de código aberto para dados de consulta de  pesquisa  as informaçõ
 Algums parametros de ação são necessarios para a execução
 ### 📋 Pré-requisitos
  
-* [Java11](http://www.dropwizard.io/1.0.2/docs/)
+* [Java17](http://www.dropwizard.io/1.0.2/docs/)
 * [Spring boot](https://spring.io/projects/spring-boot)
 * [H2](https://www.h2database.com/html/main.html)
-* [Swagger](https://swagger.io/)
+* [OpenAPI](https://www.openapis.org/)
 * [openJDK](https://maven.apache.org/)
-* [Heroku](https://www.heroku.com/free)
-
+ 
  
 ### 🔧 Instalação 🛠️ 
 
