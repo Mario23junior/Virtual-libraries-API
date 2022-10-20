@@ -1,4 +1,4 @@
-<p align="center"><img src="main/resources/logo/digital.gif" width = "833px" height="433px"></p>
+<p align="center"><img src="logo/digital.gif" width = "250px" height="192px"></p>
 
 <h1 align="center"> Virtual libraries API</h1>
 
