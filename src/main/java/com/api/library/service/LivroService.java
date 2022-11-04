@@ -2,15 +2,17 @@ package com.api.library.service;
 
 import java.util.Optional;
 
-import org.modelmapper.ModelMapper;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
-
 import com.api.library.dto.LivrosDTO;
 import com.api.library.exceptions.ReturnErroFindNotFound;
 import com.api.library.model.Livros;
 import com.api.library.repository.LivrosRepository;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 @Service
 public class LivroService {
@@ -51,6 +53,13 @@ public class LivroService {
 					  +" Não encontrado por favor insira ou tente mais tarde");
 		}
 	}
+	
+	
+	public Page<Livros> findPageAll(Integer pageNo, Integer pageSize){
+	   PageRequest pageRequest = PageRequest.of(pageNo, pageSize);
+	   return repository.findAll(pageRequest);
+ 	}
+	
 
 	public ResponseEntity<LivrosDTO> updateLivro(LivrosDTO livroDto, Long id) {
 		Optional<Livros> livrosId = repository.findById(id);

@@ -1,11 +1,14 @@
 package com.api.library.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
 
 import com.api.library.model.Livros;
 
-public interface LivrosRepository extends JpaRepository<Livros, Long> {
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+public interface LivrosRepository extends PagingAndSortingRepository<Livros, Long> {
   
 	Livros findByName(String name);
-
+  	
  }
+ 
